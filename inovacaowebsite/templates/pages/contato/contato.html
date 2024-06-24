@@ -1,0 +1,48 @@
+{% extends "base/base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% load static %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/contato.css' %}">{% endblock %}
+
+{% block content %}
+
+<section id="main-section" class="hidden main-section d-flex align-items-center">
+    <div class="container contato">
+        <div class="form_box">
+            <form id="contactForm" action="{% url 'contato' %}" method="POST">{% csrf_token %}
+                <div class="left-right">
+                <div class="left">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" placeholder="Insira o seu nome">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Insira seu email">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" name="assunto" id="assunto" placeholder="Insira o nome do assunto">
+                </div>
+                <div class="right">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea name="mensagem" id="mensagem" placeholder="Passe a mensagem desejada"></textarea>
+                </div>
+                </div>
+                <div id="error-message" style="color: red; display: none;">O campo de Email é obrigatório.</div>
+                <button id="enviar" type="enviar">Enviar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div id="confirmationModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <p>Quer mesmo enviar a mensagem?</p>
+        <div class="btns">
+          <button id="cancelButton">Ainda não</button>
+          <button id="confirmButton">Com Certeza</button>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block js %}<script src="{% static 'js/contato.js' %}" defer></script>{% endblock %}

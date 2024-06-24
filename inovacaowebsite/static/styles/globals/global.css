@@ -1,0 +1,44 @@
+
+:root {
+  scroll-behavior: smooth;
+  
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+
+}
+
+a {
+  color: var( --blueHover);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--lightBlue);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+}
+
+
+
+
+.dark-mode {
+  --background: #000 !important;
+  --opacityBW: #000;
+  --gray2: #201f1f;
+}
+
+.color-white {
+  color: var(--white) !important;
+  --black: #fff !important;
+}

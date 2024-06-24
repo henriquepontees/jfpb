@@ -1,0 +1,112 @@
+<article >
+  <main id="main-News" class="main-News hidden">
+    <div class="pagetitle ">
+      <h1>Noticias</h1>
+    </div>
+    <section class="section logos hidden">
+      <div class="row align-items-top ">
+        <div class="col-lg-6 hidden">
+          <div class="card">
+            <div class="card-body ">
+              <h5 class="card-title">Concurso público</h5>
+              A função, segundo o BNDES, será dividida nos seguintes campos
+              de atuação: administração, análise de sistemas e
+              desenvolvimento, análise de sistemas em suporte, análise de
+              sistemas em cibersegurança, arquitetura-urbanismo,
+              arquivologia digital, ciências contábeis, ciência de dados,
+              comunicação social, direito, economia, engenharia e psicologia
+              organizacional.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">INTERNET</div>
+            <div class="card-body">
+              <h5 class="card-title">Regulação das redes</h5>
+              O projeto que cria a Lei Brasileira de Liberdade,
+              Responsabilidade e Transparência na internet (PL 2.630/2020),
+              conhecido como o PL das Fake News, foi apresentado em 2020
+              pelo senador Alessandro Vieira (MDB-SE) e votado no mesmo ano
+              no Senado. Desde então passou apenas por uma comissão na
+              Câmara e não tem previsão para ser votado pelos deputados, que
+              buscam consenso para regras de combate à desinformação na
+              internet, responsabilização de plataformas e garantia de
+              fiscalização e aplicação de sanções.
+              <br />
+              Fonte: Agência Senado
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Concurso público</h5>
+              A função, segundo o BNDES, será dividida nos seguintes campos
+              de atuação: administração, análise de sistemas e
+              desenvolvimento, análise de sistemas em suporte, análise de
+              sistemas em cibersegurança, arquitetura-urbanismo,
+              arquivologia digital, ciências contábeis, ciência de dados,
+              comunicação social, direito, economia, engenharia e psicologia
+              organizacional.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card">
+            <img
+              src="../static/images/img/2.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Intel Core i9-13900K</h5>
+              <p class="card-text">
+                Possuindo uma velocidade que pode chegar até 5.8GHz, esse
+                modelo é a melhor opção para usuários exigentes e que buscam
+                um aparelho com alta performance
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">A inteligência artificial</h5>
+              <p class="card-text">
+                Inteligência artificial é a capacidade de dispositivos
+                eletrônicos de funcionar de uma maneira que lembra o
+                pensamento humano.
+              </p>
+            </div>
+            <img
+              src="../static/images/img/2.jpg"
+              class="card-img-bottom"
+              alt="..."
+            />
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <aside class="section painel">
+            <div class="card">
+              <div class="card-body pb-0">
+                <h5 class="card-title">
+                  Notícias &amp; Urgentes <span>|Todas</span>
+                </h5>
+                <div class="news">
+                  {% for noticia in noticias %}
+                  <div class="">
+                    <img src="{{ noticia.imagem.url }}" alt="" />
+                    <h4>
+                      <a href="#">{{ noticia.titulo }}</a>
+                    </h4>
+                    <p>
+                      {{ noticia.descricao }}
+                    </p>
+                  </div>
+
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+</article>

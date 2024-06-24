@@ -1,0 +1,95 @@
+{% extends "base/base.html" %}
+
+{% block title %}Projetos{% endblock %}
+
+{% load static %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/projetos.css' %}" />{% endblock %}
+
+{% block content %}
+
+<main id="main" role="main" style="margin-top: 10%;">
+    <section id="news" class="news">
+      <section id="search" data-aos="fade-up" class="d-flex justify-content-between align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+              <span class="text-light">Home / Projetos</span>
+              <div class="d-flex align-items-center position-relative">
+<div class="filtragem">
+              <!-- <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Filtrar Status
+              </button>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#" onclick="filterStatus('Pendência')">Pendência</a>
+                  <a class="dropdown-item" href="#" onclick="filterStatus('Andamento')">Andamento</a>
+                  <a class="dropdown-item" href="#" onclick="filterStatus('Conclusão')">Conclusão</a>
+                  <a class="dropdown-item" href="#" onclick="filterStatus('All')">Todos</a>
+              </div> -->
+            </div>
+                <label for="input-search" class="visually-hidden">Buscar Projeto</label>
+                <input type="search" class="form-control border-0" placeholder="Buscar Projeto" id="input-search" />
+                <span class="border-0 position-absolute" id="search-addon" style="right: 10px;">
+                  <i class="bi bi-search"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container mt-3" data-aos="fade-up">
+        <div class="row">
+          <section class="col-12">
+            <ul class="list-group list-group-flush">
+              {% for projeto in projetos %}
+              <li class="list-group-item">
+                <a href="{% url 'projeto' projeto_id=projeto.id %}">
+                <article class="d-flex gap-3">
+                  <img src="{{ projeto.imagem.url }}" alt="{{projeto.titulo}}" width="200" class="rounded">
+                  <div class="d-flex flex-column justify-content-between">
+                    <header>
+                      <h6>{{projeto.autor}}</h6>
+                      <h6 class="subtitle-notice">{{projeto.titulo}}</h6>
+                    </header>
+                    <p class="text-muted"> {{projeto.descricao}} </p>
+                    <footer>
+                      <p class="{% if projeto.status == 'Pendência' %}text-danger{% elif projeto.status == 'Em Andamento' %}text-warning{% elif projeto.status == 'Conclusão  ' %}text-success{% endif %}">
+                        Status: {{ projeto.status }}
+                      </p>
+                      <time datetime="2023-09-28T13:00">{{projeto.data}}</time>
+                    </footer>
+                  </div>
+                </article>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <div class="pagination-container">
+        <nav aria-label="Navegação">
+          <ul class="pagination justify-content-end">
+            <li class="page-item {% if not projetos.has_previous %}disabled{% endif %}">
+              <a class="page-link" href="?page={{ previous_page }}" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            {% for num in projetos.paginator.page_range %}
+              <li class="page-item {% if projetos.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+              </li>
+            {% endfor %}
+            <li class="page-item {% if not projetos.has_next %}disabled{% endif %}">
+              <a class="page-link" href="?page={{ next_page }}" aria-label="Próximo">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+{% endblock %}

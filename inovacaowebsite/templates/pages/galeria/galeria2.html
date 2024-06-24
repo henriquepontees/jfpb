@@ -1,0 +1,45 @@
+{% extends "base/base.html" %}
+
+{% block title %}HOME{% endblock %}
+
+{% load static %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/galeria2.css' %}">{% endblock %}
+
+{% block content %}
+
+
+<section id="main-section" class="hidden main-section d-flex align-items-center">
+
+  <div class="container text-center" style="margin-top: 100px;">
+    <div class="row">
+    {% for foto in imagens %}
+    <div class="col">
+        <a href="#" class="image-link">
+          <div class="card" style="width: 13rem;">
+            <img src="{{ foto.imagem.url }}" class="card-img-top main-img" alt="...">
+          </div>
+        </a>
+      </div>
+        {% if forloop.counter|divisibleby:4 and not forloop.last %}
+    </div> <br>
+    <div class="row">
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+</section>
+
+<!-- Modal -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <a class="prev">&#10094;</a>
+  <a class="next">&#10095;</a>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+{% endblock %}
+
+
+{% block js %}<script src="{% static 'js/galeria2.js' %}"></script>{% endblock %}

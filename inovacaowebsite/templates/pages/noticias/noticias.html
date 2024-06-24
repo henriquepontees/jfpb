@@ -1,0 +1,84 @@
+{% extends "base/base.html" %}
+
+{% block title %}Detalhes das notícias{% endblock %}
+
+{% load static %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/detalhe_noticia.css' %}" />{% endblock %}
+
+
+{% block content %}
+
+<main id="main" role="main" style="margin-top: 10%;">
+    <section id="news" class="news">
+      <section id="search" data-aos="fade-up" class="d-flex justify-content-between align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+              <span class="text-light">Home / Notícias</span>
+              <div class="d-flex align-items-center position-relative">
+                <label for="input-search" class="visually-hidden">Buscar Notícia</label>
+                <input type="search" class="form-control border-0" placeholder="Buscar Notícia" id="input-search" />
+                <span class="border-0 position-absolute" id="search-addon" style="right: 10px;">
+                  <i class="bi bi-search"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container mt-3" data-aos="fade-up">
+        <div class="row">
+          <section class="col-12">
+            <ul class="list-group list-group-flush">
+              
+            {% for noticia in noticias %}
+            
+              <li class="list-group-item">
+                <a href="{% url 'noticia' noticia_id=noticia.id %}">
+                <article class="d-flex gap-3">
+                  <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}" width="200" class="rounded">
+                  <div class="d-flex flex-column justify-content-between">
+                    <header>
+                      <h6>{{ noticia.autor }}</h6>
+                      <h6 class="subtitle-notice">{{ noticia.titulo }}</h6>
+                    </header>
+                    <p class="text-muted">{{ noticia.descricao }}</p>
+                    <footer>
+                      <time datetime="2023-09-28T13:00">{{ noticia.data }}</time>
+                    </footer>
+                  </div>
+                </article>
+              </a>
+              </li>
+            {% endfor %}
+
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div class="pagination-container">
+        <nav aria-label="Navegação">
+          <ul class="pagination justify-content-end">
+            <li class="page-item {% if not noticias.has_previous %}disabled{% endif %}">
+              <a class="page-link" href="?page={{ previous_page }}" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            {% for num in noticias.paginator.page_range %}
+              <li class="page-item {% if noticias.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+              </li>
+            {% endfor %}
+            <li class="page-item {% if not noticias.has_next %}disabled{% endif %}">
+              <a class="page-link" href="?page={{ next_page }}" aria-label="Próximo">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+{% endblock %}

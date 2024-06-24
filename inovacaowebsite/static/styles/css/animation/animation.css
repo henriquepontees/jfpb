@@ -1,0 +1,35 @@
+
+
+.hidden{
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateX(-100%);
+    transition: all 1.5s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    transition: all 1.2s;
+}
+
+
+.logos :nth-child(n) {
+    transition-delay: calc(10ms + (1ms * (n - 1)));
+}
+
+
+.hidden-d {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateX(100%); /* Movendo os elementos para fora da tela à direita */
+    transition: all 1.5s;
+}
+
+.show-d {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0); /* Movendo os elementos de volta para a sua posição normal */
+    transition: all 1.2s;
+}

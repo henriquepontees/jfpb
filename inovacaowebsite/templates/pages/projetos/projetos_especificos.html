@@ -1,0 +1,74 @@
+{% extends "base/base.html" %}
+
+{% block title %}Projetos{% endblock %}
+
+{% load static %}
+
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/premios_especificos.css' %}">{% endblock %}
+
+{% block content %}
+
+<main id="main">
+
+    <section id="news" class="news">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+    
+            <div class="col-lg-8">
+    
+              <article class="entry entry-single">
+    
+                <div class="entry-img">
+                  <img src="{{ projeto.imagem.url }}" alt="" class="img-fluid" style="width: 100%;">
+                </div>
+    
+                <h2 class="entry-title">
+                  <a href="">{{ projeto.titulo }}</a>
+                </h2>
+    
+                <div class="entry-meta">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">{{ projeto.autor }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2020-01-01">{{ projeto.data }}</time></a></li>
+                  </ul>
+                </div>
+                <div class="entry-content">
+                  <p>
+                    {{ projeto.conteudo }}
+                  </p>
+                </div>
+              </article>
+    
+            </div>
+            <div class="col-lg-4">
+    
+              <div class="sidebar">
+                <h3 class="sidebar-title">Projetos recentes
+                </h3>
+                <div class="sidebar-item recent-posts">
+
+                {% for projeto in projetos %}
+                  <div class="post-item clearfix">
+                    <img src="{{ projeto.imagem.url }}" alt="">
+                    <h4><a href="">{{ projeto.titulo }}</a></h4>
+                    <time datetime="2020-01-01">{{ projeto.data }}</time>
+                  </div>
+                {% endfor %}
+    
+                </div>
+     
+    
+              </div>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+        </section>
+    
+      </main>
+
+{% endblock %}

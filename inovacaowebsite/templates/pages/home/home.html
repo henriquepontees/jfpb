@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+
+{% block title %}HOME{% endblock %}
+
+{% block style_sheet %}
+{% load static %}
+<link href="{% static '/styles/css/equipe.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static '/styles/css/noticia.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'pages/home/inicio.html' %}
+{% include 'pages/home/noticias-henrique.html' %}
+{% include 'pages/home/equipe.html' %}
+{% include 'pages/home/parcerias.html' %}
+{% include 'pages/home/sugestoes.html' %}
+
+{% endblock %}
+{% block js %}
+<script src="{% static '/js/equipe.js' %}"></script>
+<script src="{% static '/js/carousel.js' %}"></script>
+<script src="{% static '/js/noticia-home.js' %}"></script>
+{% endblock %}
+

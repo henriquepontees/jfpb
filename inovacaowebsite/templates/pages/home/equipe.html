@@ -1,0 +1,49 @@
+<main id="main-Members">
+  <section id="team" class="team hidden">
+    <div class="container logos">
+      <header class="section-header hidden">
+        <p>Equipe</p>
+      </header>
+      <div class="row gy-4 hidden">
+        {% for pessoa in equipe %}
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch member-container">
+            <div class="member">
+              <div class="member-img">
+                <img
+                  src="{{ pessoa.imagem.url }}"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="social">
+                  <a href="{{ pessoa.twitter }}"><i class="bi bi-twitter"></i></a>
+                  <a href="{{ pessoa.facebook }}"><i class="bi bi-facebook"></i></a>
+                  <a href="{{ pessoa.instagram }}"><i class="bi bi-instagram"></i></a>
+                  <a href="{{ pessoa.linkedin }}"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{ pessoa.nome }}</h4>
+                <span>{{ pessoa.curso }}</span>
+                <p>{{ pessoa.funcao }}</p>
+                <p class="p"> {{ pessoa.descricao }} </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="memberModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

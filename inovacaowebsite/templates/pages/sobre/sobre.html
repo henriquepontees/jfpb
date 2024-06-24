@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+
+{% block title %}Nossa História{% endblock %}
+
+{% load static %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/sobre.css' %}">{% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-6">
+    <header class="text-center mb-4 header-sobre">
+        <h3 class="bg-primary text-white py-2">Nossa História</h3>
+    </header>
+    <section class="content">
+       
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-4 order-md-2 text-center">
+                <img src="{% static 'images/img/projeto.png' %}" alt="Legenda da imagem" class="img-fluid rounded mb-2">
+                <p class="caption">Legenda da imagem</p>
+            </div>
+            <div class="col-md-8 order-md-1">
+                <p>Lorem ipsum dolor sit amet consectetur. Ornare nulla semper integer sed amet. Dui tempus semper commodo mauris. Viverra massa potenti varius urna nibh sed in. Elementum ut leo aliquam id pellentesque non enim id. Ullamcorper nunc parturient malesuada auctor fusce ac tincidunt ut non.</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Duis et adipiscing quis purus felis amet nascetur. Pellentesque sit tempor fermentum hendrerit cum pellentesque ullamcorper. Magnis at at ac et enim sit arcu arcu pharetra suspendisse. Semper pulvinar odio sed turpis fermentum interdum. A ut porttitor maecenas nec nec netus maecenas lacus. Faucibus accumsan nullam risus viverra.</p>
+            </div>
+        </div>
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/img/projeto.png' %}" alt="Legenda da imagem" class="img-fluid rounded mb-2">
+                <p class="caption">Legenda da imagem</p>
+            </div>
+            <div class="col-md-8">
+                <p>Lorem ipsum dolor sit amet consectetur. Duis et adipiscing quis purus felis amet nascetur. Pellentesque sit tempor fermentum hendrerit cum pellentesque ullamcorper. Magnis at at ac et enim sit arcu arcu pharetra suspendisse. Semper pulvinar odio sed turpis fermentum interdum. A ut porttitor maecenas nec nec netus maecenas lacus. Faucibus accumsan nullam risus viverra.</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Duis et adipiscing quis purus felis amet nascetur. Pellentesque sit tempor fermentum hendrerit cum pellentesque ullamcorper. Magnis at at ac et enim sit arcu arcu pharetra suspendisse. Semper pulvinar odio sed turpis fermentum interdum. A ut porttitor maecenas nec nec netus maecenas lacus. Faucibus accumsan nullam risus viverra.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

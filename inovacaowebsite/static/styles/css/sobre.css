@@ -1,0 +1,26 @@
+
+.header-sobre h3 {
+    background: linear-gradient(to right,#ffffff,#32508C, #ffffff);
+    color: white;
+    margin-top: 8rem;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.content p {
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+.caption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+

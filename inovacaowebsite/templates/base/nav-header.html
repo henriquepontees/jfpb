@@ -1,0 +1,40 @@
+    <header id="header" class="header fixed-top">
+      <div class="hidden container-fluid container-xl d-flex align-items-center justify-content-between"
+      >
+        <a href="{% url 'home' %}" class="hidden logo d-flex align-items-center">
+          {% load static %}
+          <img src="{% static 'images/logo/logo-4.png' %}" alt="" class="" />
+          <span>JFPB</span>
+        </a>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'sobre' %}">Sobre</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'noticias' %}">Notícias</a></li>
+            <li><a class="nav-link scrollto" href="../#team">Equipe</a></li>
+
+            <li class="dropdown">
+              <a href="#"><i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li><a href="{% url 'legislacoes' %}">Legislações</a></li>
+                <li><a href="{% url 'premios' %}">Prêmios </a></li>
+                <li><a href="{% url 'projetos' %}">Projetos </a></li>
+                <li><a href="{% url 'galeria' %}">Galeria </a></li>
+              </ul>
+            </li>
+            <li><a class="getstarted scrollto " href="{% url 'contato' %}">Contato</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+
+        <div class="accessibility accessibility-header" tabindex="0">
+          <img src="{% static 'images/accessibility/acessibilidade_ap.svg' %}" alt="Ícone aumentar fonte" class="accessibility-fontA" title="Aumentar o tamanho das letras" tabindex="0">
+          <img src="{% static 'images/accessibility/acessibilidade_am.svg' %}" alt="Ícone diminuir fonte" class="accessibility-fontD" title="Diminuir o tamanho das letras" tabindex="0">
+          <img src="{% static 'images/accessibility/acessibilidade_preto.svg' %}" alt="Ícone escuro/claro" class="accessibility-dark" title="Ativar e Desativar o modo alto contraste" tabindex="0">
+          <img src="{% static 'images/accessibility/acessibilidade_c.svg' %}" alt="Ícone tons de cinza" class="accessibility-gray" title="Ativar e Desativar o modo em tons de cinza" tabindex="0">
+          <img src="{% static 'images/accessibility/acessibilidade_back.svg' %}" alt="Ícone voltar" class="accessibility-back" title="Voltar a configuração inicial" tabindex="0">
+      </div>
+      </div>
+    </header>

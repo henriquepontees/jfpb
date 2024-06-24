@@ -1,0 +1,66 @@
+
+{% extends "base/base.html" %}
+
+{% load static %}
+
+{% block title %}Legislação{% endblock %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/legislacao.css' %}">{% endblock %}
+
+{% block content %}
+
+<main id="main" role="main" style="margin-top: 10%;">
+    <section id="news" class="news">
+      <section id="search" data-aos="fade-up" class="d-flex justify-content-between align-items-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-10 d-flex justify-content-between align-items-center">
+              <span class="text-light">Home / Legislações / {{legi.titulo}}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 sidebar hide-sidebar">
+          <nav class="nav flex-column">
+            <a id="link-internacional-1" class="nav-link" href="#">{{legi.titulo}}</a>
+            <div id="opcoes-internacional-1" style="display: none;">
+            </div>
+
+          </nav>
+        </div>
+        <main class="col-md-10">
+          <h4 class="mt-4">{{legi.titulo}}</h4>
+          <p>{{legi.descricao}}</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nome do Código</th>
+                  <th>Lei</th>
+                  <th>Ano</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for lei in legis %}
+                <tr>
+                  <td><a href="{{lei.url}}">{{lei.nome}}</a></td>
+                  <td>{{lei.lei}}</td>
+                  <td>{{lei.ano}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+ <br> <br> <br>
+
+
+  </main>
+
+  {% endblock %}

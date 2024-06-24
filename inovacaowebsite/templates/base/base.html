@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="#">
+  <title>JFPB - {% block title %}{% endblock %}</title>
+  {% load static %}
+  <link href="{% static 'styles/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'styles/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'styles/css/equipe.css' %}" rel="stylesheet">
+  <link href="{% static 'styles/globals/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'styles/globals/global.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/css/Footer.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/css/animation/animation.css' %}">
+  {% block style_sheet %}{% endblock %}
+  <style></style>
+</head>
+<body>
+{% include 'base/nav-header.html' %}
+{% block content %}{% endblock %}
+{% include 'base/footer.html' %}
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'styles/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+  <script src="{% static 'js/animation.js' %}"> </script>
+
+
+
+  <div class="gtranslate_wrapper"></div>
+  <script>
+    window.gtranslateSettings = {
+      default_language: "pt",
+      languages: ["pt", "en", "es"],
+      wrapper_selector: ".gtranslate_wrapper",
+      alt_flags: { pt: "brazil" },
+    };
+  </script>
+  <script
+    src="https://cdn.gtranslate.net/widgets/latest/float.js' %}"
+    defer
+  ></script>
+  {% block js %}{% endblock %}
+</body>
+</html>

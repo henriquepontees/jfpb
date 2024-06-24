@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+
+{% block title %}HOME{% endblock %}
+
+{% load static %}
+
+{% block style_sheet %}<link rel="stylesheet" href="{% static 'styles/css/galeria.css' %}">{% endblock %}
+
+{% block content %}
+
+<section id="main-section" class="hidden main-section d-flex align-items-center">
+  <div class="container text-center"  style="margin-top: 100px;">
+    <div class="row">
+    {% for album in albuns %}
+        <div class="col">
+            <a href="{% url 'album' album_id=album.id %}">
+            <div class="card position-relative" style="width: 10rem;">
+                <img src="{{ album.capa.url }}" class="card-img-top main-img" alt="...">
+                <img src="{{ album.capa.url }}" class="card-img-top second-img" alt="...">
+                <img src="{{ album.capa.url }}" class="card-img-top third-img" alt="...">
+                <span class="album-title">{{ album.titulo }}</span> 
+            </div>
+            </a>
+
+        </div>
+        {% if forloop.counter|divisibleby:4 and not forloop.last %}
+    </div> <br>  <br>
+    <div class="row">
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+</section>
+
+{% endblock %}
