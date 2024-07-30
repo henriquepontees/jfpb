@@ -54,7 +54,7 @@
                     </header>
                     <p class="text-muted"> {{projeto.descricao}} </p>
                     <footer>
-                      <p class="{% if projeto.status == 'Pendência' %}text-danger{% elif projeto.status == 'Em Andamento' %}text-warning{% elif projeto.status == 'Conclusão  ' %}text-success{% endif %}">
+                      <p class="{% if projeto.status == 'Pendência' %}text-danger{% elif projeto.status == 'Em Andamento' %}text-warning{% elif projeto.status == 'Concluído' %}text-success{% endif %}">
                         Status: {{ projeto.status }}
                       </p>
                       <time datetime="2023-09-28T13:00">{{projeto.data}}</time>

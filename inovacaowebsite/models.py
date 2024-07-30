@@ -11,7 +11,7 @@ class Noticia(models.Model):
     data = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = "Albuns"
+        verbose_name_plural = "Notícia"
         ordering = ['-data']
 
     def __str__(self):
@@ -83,7 +83,7 @@ class Contato(models.Model):
         return self.nome + ' - ' + self.assunto
 
 class Projeto(models.Model):
-    status_choices = (('Pendência', 'Pendência'), ('Em Andamento', 'Em Andamento'), ('Conclusão', 'Conclusão'))
+    status_choices = (('Pendência', 'Pendência'), ('Em Andamento', 'Em Andamento'), ('Concluído', 'Concluído'))
 
     imagem = models.ImageField(upload_to='projetos')
     titulo = models.CharField(max_length=100)
